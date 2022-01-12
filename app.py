@@ -89,7 +89,7 @@ else:
 
     else:
         
-        total_confirmed_df, total_deaths_df, total_recovered_df = select_date_country(selected_date,selected_country)
+        total_confirmed_df, total_deaths_df, total_recovered_df = select_date_country(date.today()-datetime.timedelta(1),selected_country)
         total_confirmed, total_deaths, total_recovered, total_active = cases(total_confirmed_df,
                                                                              total_deaths_df, total_recovered_df)
 
