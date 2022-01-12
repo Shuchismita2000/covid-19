@@ -33,6 +33,10 @@ if is_clicked:
         figure1 = cases_for_a_specific_date(total_confirmed, total_deaths, total_recovered, total_active)
 
         figure2 = chloropleth_graph(total_confirmed_df)
+        
+        figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
+ 
+
 
     else:
         
@@ -55,7 +59,13 @@ if is_clicked:
              "denotes the low confirmed cases of that country and the less dark colour denotes the high confirmed "
              "cases of that country.")
     st.plotly_chart(figure2, use_container_width=True)
+    st.write("This is the **Confirmed vs Deaths** Scatter plot in which the size of the circle is determined "
+             "by the percentage of the death i.e. **Death Rate**.")
+    st.plotly_chart(figure3, use_container_width=True)
 
+    st.write("In this stacked graph I am drawing inference on **Top 20 countries which are highest in Deaths**. "
+             "the bars denotes the **Death Count** and the line denotes the **Death Rate**")
+    st.plotly_chart(figure4, use_container_width=True)
 
 
 
@@ -68,7 +78,7 @@ else:
         figure1 = cases_for_a_specific_date(total_confirmed, total_deaths, total_recovered, total_active)
 
         figure2 = chloropleth_graph(total_confirmed_df)
-
+        figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
         
 
     else:
@@ -92,16 +102,14 @@ else:
              "denotes the low confirmed cases of that country and the less dark colour denotes the high confirmed "
              "cases of that country.")
     st.plotly_chart(figure2, use_container_width=True)
-
- figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
- st.write("This is the **Confirmed vs Deaths** Scatter plot in which the size of the circle is determined "
+    st.write("This is the **Confirmed vs Deaths** Scatter plot in which the size of the circle is determined "
              "by the percentage of the death i.e. **Death Rate**.")
- st.plotly_chart(figure3, use_container_width=True)
+    st.plotly_chart(figure3, use_container_width=True)
 
- st.write("In this stacked graph I am drawing inference on **Top 20 countries which are highest in Deaths**. "
+    st.write("In this stacked graph I am drawing inference on **Top 20 countries which are highest in Deaths**. "
              "the bars denotes the **Death Count** and the line denotes the **Death Rate**")
- st.plotly_chart(figure4, use_container_width=True)
-
+    st.plotly_chart(figure4, use_container_width=True)
+ 
 if daily == 'Daily Confirmed Cases':
     figure5 = DailyConfirmedCases()
     st.write("In this graph, I am drawing inference on **Daily Confirmed Cases** across all the countries.")
