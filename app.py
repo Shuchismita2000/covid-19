@@ -46,8 +46,6 @@ if is_clicked:
 
         figure2 = chloropleth_graph(total_confirmed_df)
 
-        figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
-
     st.write('Data of',selected_date)
     st.write(selected_country)
     st.write("This Chart gives us a little summary on **Total Confirmed Cases**, **Total Death Cases**,"
@@ -93,8 +91,6 @@ else:
         figure1 = cases_for_a_specific_date(total_confirmed, total_deaths, total_recovered, total_active)
 
         figure2 = chloropleth_graph(total_confirmed_df)
-
-        figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
         
     st.write('Data of',date.today()-datetime.timedelta(1))
     st.write(selected_country)
