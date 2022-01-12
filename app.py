@@ -24,7 +24,7 @@ selected_country = st.sidebar.selectbox('Select Country', options=country)
 is_clicked = st.sidebar.button("Apply")
 st.sidebar.header('Daily Cases Graph')
 daily= st.sidebar.radio(" Choose one ",('Daily Confirmed Cases per 100k','Daily Confirmed Cases','Daily Recovered Cases','Daily Death Cases'))
-
+st.write(selected_date)
 if is_clicked:
     if selected_country=='Whole World':
         total_confirmed_df, total_deaths_df, total_recovered_df = select_date(selected_date)
@@ -49,7 +49,7 @@ if is_clicked:
 
         figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
 
-
+    st.write(selected_date)
     st.write("This Chart gives us a little summary on **Total Confirmed Cases**, **Total Death Cases**,"
              " **Total Recovery Cases** "
              "and **Total Active Cases** till now.")
@@ -96,7 +96,7 @@ else:
 
         figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
 
-
+    st.write(date.today()-datetime.timedelta(1))
     st.write("This Chart gives us a little summary on **Total Confirmed Cases**, **Total Death Cases**,"
              " **Total Recovery Cases** "
              "and **Total Active Cases** till now.")
