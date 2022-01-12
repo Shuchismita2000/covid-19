@@ -37,7 +37,7 @@ if is_clicked:
         figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
 
     else:
-        st.write(selected_country)
+        
         total_confirmed_df, total_deaths_df, total_recovered_df = select_date_country(selected_date,selected_country)
         total_confirmed, total_deaths, total_recovered, total_active = cases(total_confirmed_df,
                                                                              total_deaths_df, total_recovered_df)
@@ -48,7 +48,8 @@ if is_clicked:
 
         figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
 
-    st.write(selected_date)
+    st.write('Data of',selected_date)
+    st.write(selected_country)
     st.write("This Chart gives us a little summary on **Total Confirmed Cases**, **Total Death Cases**,"
              " **Total Recovery Cases** "
              "and **Total Active Cases** till now.")
@@ -84,7 +85,7 @@ else:
         figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
 
     else:
-        st.write(selected_country)
+        
         total_confirmed_df, total_deaths_df, total_recovered_df = select_date_country(selected_date,selected_country)
         total_confirmed, total_deaths, total_recovered, total_active = cases(total_confirmed_df,
                                                                              total_deaths_df, total_recovered_df)
@@ -94,8 +95,9 @@ else:
         figure2 = chloropleth_graph(total_confirmed_df)
 
         figure3, figure4 = SortByConfirmedAndDeathrate(total_confirmed_df, total_deaths_df)
-
-    st.write(date.today()-datetime.timedelta(1))
+        
+    st.write('Data of',date.today()-datetime.timedelta(1))
+    st.write(selected_country)
     st.write("This Chart gives us a little summary on **Total Confirmed Cases**, **Total Death Cases**,"
              " **Total Recovery Cases** "
              "and **Total Active Cases** till now.")
